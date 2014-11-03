@@ -87,5 +87,5 @@ dependencies {
 }
 
 war {
-    baseName = 'pebms'
+    baseName = 'spring4-mybatis'
 }
