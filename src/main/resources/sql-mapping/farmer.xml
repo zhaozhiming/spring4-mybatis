@@ -2,10 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="farmer">
 
-    <select id="select-farmer-age-18" resultType="java.lang.String">
-        select name
+    <resultMap id="baseResultMap" type="com.farmer.baton.model.Farmer">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="age" property="age"/>
+    </resultMap>
+
+    <select id="find-all-farmers" resultMap="baseResultMap">
+        select id as id,
+          name as name,
+          age as age
         from farmers
-        where age = 18
     </select>
 
     <insert id="add-new-farmer" parameterType="com.farmer.baton.model.Farmer">

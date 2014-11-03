@@ -14,8 +14,8 @@ public class FarmerRepositoryImpl implements FarmerRepository {
     }
 
     @Override
-    public List<String> findAll() {
-        return this.sqlSession.selectList("select-farmer-age-18");
+    public List<Farmer> findAll() {
+        return this.sqlSession.selectList("find-all-farmers");
     }
 
     @Override

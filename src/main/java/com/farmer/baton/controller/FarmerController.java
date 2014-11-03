@@ -41,9 +41,8 @@ public class FarmerController {
     @ResponseBody
     String search() throws Exception {
         log.debug("search farmer start");
-        List<String> farmers = farmerRepository.findAll();
 
-//        List<Farmer> farmers = farmerRepository.findAll();
+        List<Farmer> farmers = farmerRepository.findAll();
         String resultArrayJson = mapper.writeValueAsString(farmers);
         log.debug(format("resultArrayJson: %s", resultArrayJson));
         log.debug("search farmer finish");
