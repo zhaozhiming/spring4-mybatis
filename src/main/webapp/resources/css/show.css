@@ -1,0 +1,54 @@
+/* Style for our header texts
+	* --------------------------------------- */
+.section h1{
+    font-size: 5em;
+    font-family: arial,helvetica;
+    color: #fff;
+    margin:0;
+    padding:0;
+}
+
+/* Centered texts in each section
+* --------------------------------------- */
+.section{
+    text-align:center;
+}
+
+
+/* Backgrounds will cover all the section
+* --------------------------------------- */
+#section0,
+#section1,
+#section2,
+#section3{
+    background-size: cover;
+}
+
+/* Defining each section background and styles
+* --------------------------------------- */
+#section0{
+    background-image: url(../images/farmer1.JPG);
+    padding: 6% 0 0 0;
+}
+#section1{
+    background-image: url(../images/farmer2.JPG);
+    padding: 6% 0 0 0;
+}
+#section2{
+    background-image: url(../images/farmer3.JPG);
+    padding: 6% 0 0 0;
+}
+#section3{
+    background-image: url(../images/farmer4.JPG);
+    padding: 6% 0 0 0;
+}
+
+
+/* Overwriting fullPage.js tooltip color
+	* --------------------------------------- */
+#fullPage-nav span, .fp-slidesNav span{
+    border-color: #AAA;
+}
+#fullPage-nav li .active span, .fp-slidesNav .active span{
+    background: #AAA;
+}
