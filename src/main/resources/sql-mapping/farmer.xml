@@ -8,4 +8,11 @@
         where age = 18
     </select>
 
+    <insert id="add-new-farmer" parameterType="com.farmer.baton.model.Farmer">
+      insert into farmers(id, name, age) values (
+        #{id},
+        #{name},
+        #{age}
+      )
+    </insert>
 </mapper>

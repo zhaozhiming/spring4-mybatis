@@ -1,5 +1,6 @@
 package com.farmer.baton.controller;
 
+import com.farmer.baton.model.Farmer;
 import com.farmer.baton.repo.impl.FarmerRepositoryImpl;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -30,10 +31,8 @@ public class FarmerController {
     @ResponseStatus(value = HttpStatus.OK)
     public void create() {
         log.debug("create farmer start");
-//        farmerRepository.save(new Farmer("张三", 18));
-//        farmerRepository.save(new Farmer("李四", 100));
+        farmerRepository.save(new Farmer(100L, "王五", 20));
 
-//        log.debug("farmer: " + farmerRepository.findByAge(18));
         log.debug("create farmer finish");
     }
 
@@ -42,7 +41,7 @@ public class FarmerController {
     @ResponseBody
     String search() throws Exception {
         log.debug("search farmer start");
-        List<String> farmers = farmerRepository.findFarmerAge18();
+        List<String> farmers = farmerRepository.findAll();
 
 //        List<Farmer> farmers = farmerRepository.findAll();
         String resultArrayJson = mapper.writeValueAsString(farmers);

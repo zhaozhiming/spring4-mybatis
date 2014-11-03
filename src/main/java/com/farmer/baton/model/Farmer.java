@@ -9,7 +9,8 @@ public class Farmer {
     public Farmer() {
     }
 
-    public Farmer(String name, int age) {
+    public Farmer(long id, String name, int age) {
+        this.id = id;
         this.name = name;
         this.age = age;
     }
