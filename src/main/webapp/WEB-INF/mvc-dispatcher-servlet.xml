@@ -35,6 +35,7 @@
         <property name="configLocation" value="classpath:sql-map-config.xml"/>
         <property name="mapperLocations" value="classpath:sql-mapping/*.xml" />
     </bean>
+
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.farmer.baton.repo" />
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
@@ -43,4 +44,14 @@
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
     </bean>
+
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory" />
+        <constructor-arg index="1" value="BATCH" />
+    </bean>
+
+    <bean id="farmerDao" class="com.farmer.baton.repo.impl.FarmerRepositoryImpl">
+        <property name="sqlSession" ref="sqlSession" />
+    </bean>
+
 </beans>

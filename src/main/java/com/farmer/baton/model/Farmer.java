@@ -1,15 +1,9 @@
 package com.farmer.baton.model;
 
-import javax.persistence.*;
 
-@Entity(name = "farmers")
 public class Farmer {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Basic
     private String name;
-    @Basic
     private int age;
 
     public Farmer() {
