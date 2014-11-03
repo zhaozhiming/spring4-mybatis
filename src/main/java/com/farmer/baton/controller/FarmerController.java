@@ -1,6 +1,7 @@
 package com.farmer.baton.controller;
 
 import com.farmer.baton.model.Farmer;
+import com.farmer.baton.repo.FarmerMapper;
 import com.farmer.baton.repo.impl.FarmerRepositoryImpl;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -27,6 +28,9 @@ public class FarmerController {
     @Autowired
     private FarmerRepositoryImpl farmerRepository;
 
+    @Autowired
+    private FarmerMapper farmerMapper;
+
     @RequestMapping(value = "/create", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public void create() {
@@ -43,6 +47,19 @@ public class FarmerController {
         log.debug("search farmer start");
 
         List<Farmer> farmers = farmerRepository.findAll();
+        String resultArrayJson = mapper.writeValueAsString(farmers);
+        log.debug(format("resultArrayJson: %s", resultArrayJson));
+        log.debug("search farmer finish");
+        return resultArrayJson;
+    }
+
+    @RequestMapping(value = "/find", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
+    public
+    @ResponseBody
+    String find() throws Exception {
+        log.debug("search farmer start");
+
+        List<Farmer> farmers = farmerMapper.findAll();
         String resultArrayJson = mapper.writeValueAsString(farmers);
         log.debug(format("resultArrayJson: %s", resultArrayJson));
         log.debug("search farmer finish");
