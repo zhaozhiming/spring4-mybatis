@@ -36,7 +36,6 @@ public class FarmerController {
     public void create() {
         log.debug("create farmer start");
         farmerRepository.save(new Farmer(100L, "王五", 20));
-
         log.debug("create farmer finish");
     }
 
