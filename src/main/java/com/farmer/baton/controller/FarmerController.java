@@ -3,6 +3,7 @@ package com.farmer.baton.controller;
 import com.farmer.baton.model.Farmer;
 import com.farmer.baton.repo.FarmerMapper;
 import com.farmer.baton.repo.impl.FarmerRepositoryImpl;
+import com.farmer.baton.service.FarmerService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.codehaus.jackson.map.ObjectMapper;
@@ -31,24 +32,22 @@ public class FarmerController {
     @Autowired
     private FarmerMapper farmerMapper;
 
+    @Autowired
+    private FarmerService farmerService;
+
     @RequestMapping(value = "/create", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     public void create() {
-        log.debug("create farmer start");
         farmerRepository.save(new Farmer(100L, "王五", 20));
-        log.debug("create farmer finish");
     }
 
     @RequestMapping(value = "/search", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
     public
     @ResponseBody
     String search() throws Exception {
-        log.debug("search farmer start");
-
         List<Farmer> farmers = farmerRepository.findAll();
         String resultArrayJson = mapper.writeValueAsString(farmers);
         log.debug(format("resultArrayJson: %s", resultArrayJson));
-        log.debug("search farmer finish");
         return resultArrayJson;
     }
 
@@ -56,14 +55,15 @@ public class FarmerController {
     public
     @ResponseBody
     String find() throws Exception {
-        log.debug("search farmer start");
-
         List<Farmer> farmers = farmerMapper.findAll();
         String resultArrayJson = mapper.writeValueAsString(farmers);
         log.debug(format("resultArrayJson: %s", resultArrayJson));
-        log.debug("search farmer finish");
         return resultArrayJson;
     }
 
-
+    @RequestMapping(value = "/update", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
+    @ResponseStatus(value = HttpStatus.OK)
+    public void update() throws Exception {
+        farmerService.updateTwoFarmers(new Farmer(19), new Farmer(21));
+    }
 }

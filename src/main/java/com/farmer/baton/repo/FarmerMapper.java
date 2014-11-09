@@ -8,4 +8,8 @@ import java.util.List;
 @Repository
 public interface FarmerMapper {
     List<Farmer> findAll();
+
+    void updateWangwu(Farmer farmer);
+
+    void updateZhangsan(Farmer farmer);
 }

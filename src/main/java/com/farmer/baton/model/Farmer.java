@@ -9,6 +9,10 @@ public class Farmer {
     public Farmer() {
     }
 
+    public Farmer(int age) {
+        this.age = age;
+    }
+
     public Farmer(long id, String name, int age) {
         this.id = id;
         this.name = name;
