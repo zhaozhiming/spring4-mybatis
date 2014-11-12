@@ -30,16 +30,17 @@
         from farmers
     </select>
 
-    <update id="updateWangwu" parameterType="com.farmer.baton.model.Farmer">
+    <update id="updateZhangsan" parameterType="com.farmer.baton.model.Farmer">
         UPDATE farmers
+        set age = #{age}
+        where id = 9
+    </update>
+
+    <update id="updateWangwu" parameterType="com.farmer.baton.model.Farmer">
+        UPDATE farmers,
          set age = #{age}
         where id = 100
     </update>
 
-    <update id="updateZhangsan" parameterType="com.farmer.baton.model.Farmer">
-        UPDATE farmers
-         set age = #{age}
-        where id = 9
-    </update>
 
 </mapper>

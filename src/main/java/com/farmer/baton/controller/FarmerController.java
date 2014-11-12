@@ -11,7 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.List;
 
@@ -64,6 +67,6 @@ public class FarmerController {
     @RequestMapping(value = "/update", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
     @ResponseStatus(value = HttpStatus.OK)
     public void update() throws Exception {
-        farmerService.updateTwoFarmers(new Farmer(19), new Farmer(21));
+        farmerService.updateTwoFarmers(new Farmer(23), new Farmer(22));
     }
 }
