@@ -37,7 +37,7 @@
     </update>
 
     <update id="updateWangwu" parameterType="com.farmer.baton.model.Farmer">
-        UPDATE farmers,
+        UPDATE farmers
          set age = #{age}
         where id = 100
     </update>
